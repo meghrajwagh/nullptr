@@ -63,21 +63,34 @@ export default function CompanyPage() {
           <h1>iScope</h1>
         </div>
       </div>
-
+      
       <div className="content">
         {analysisData && (
-          <div className="graph-card">
-            <div className="graph-container">
+          <div className="analysis-container">
+            <div className="graph-card">
+              <div className="graph-container">
               <ForceGraph2D
-                graphData={graphData}
-                nodeAutoColorBy="id"
-                nodeLabel="id"
-                linkColor={() => 'rgba(255, 255, 255, 0.2)'}
-                nodeColor={() => '#00b4d8'}
-                backgroundColor="rgba(0, 0, 0, 0)"
-                width={window.innerWidth}
-                height={window.innerHeight}
-              />
+        graphData={graphData}
+        backgroundColor="rgba(0, 0, 0, 0)"
+        width={window.innerWidth}
+        height={window.innerHeight}
+        nodeCanvasObject={(node, ctx, globalScale) => {
+          const label = node.id;
+          const fontSize = 12 / globalScale;
+          ctx.font = `${fontSize}px Sans-Serif`;
+          ctx.fillStyle = '#00b4d8';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(label, node.x, node.y);
+        }}
+        nodePointerAreaPaint={(node, color, ctx) => {
+          ctx.fillStyle = color;
+          const size = 5;
+          ctx.fillRect(node.x - size / 2, node.y - size / 2, size, size);
+        }}
+      />
+
+              </div>
             </div>
           </div>
         )}
