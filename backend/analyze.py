@@ -18,6 +18,7 @@ def analyze_company(company_name):
     print("Extracting content from sources")
     contents = extract_content_from_sources(final_results)
 
+
     chat_prompt = ChatPromptTemplate.from_messages([
         ("system", entity_relation_extraction_prompt),
     ])
