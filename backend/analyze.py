@@ -28,6 +28,7 @@ def analyze_company(company_name):
     chain = llm | parser
     response = chain.invoke(chat_prompt.format(news = str(contents)))
 
+    print(response)
     return response
 
 if __name__ == "__main__":
