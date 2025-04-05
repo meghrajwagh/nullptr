@@ -63,33 +63,21 @@ export default function CompanyPage() {
           <h1>iScope</h1>
         </div>
       </div>
-      
+
       <div className="content">
-        <div className="company-header">
-          <h2 className="company-name">{company}</h2>
-        </div>
-
         {analysisData && (
-          <div className="analysis-container">
-            <div className="summary-card">
-              <h3>Analysis Summary</h3>
-              <p>{analysisData.summary[0]}</p>
-            </div>
-
-            <div className="graph-card">
-              <h3>Relationship Graph</h3>
-              <div className="graph-container">
-                <ForceGraph2D
-                  graphData={graphData}
-                  nodeAutoColorBy="id"
-                  nodeLabel="id"
-                  linkColor={() => 'rgba(255, 255, 255, 0.2)'}
-                  nodeColor={() => '#00b4d8'}
-                  backgroundColor="rgba(0, 0, 0, 0)"
-                  width={600}
-                  height={400}
-                />
-              </div>
+          <div className="graph-card">
+            <div className="graph-container">
+              <ForceGraph2D
+                graphData={graphData}
+                nodeAutoColorBy="id"
+                nodeLabel="id"
+                linkColor={() => 'rgba(255, 255, 255, 0.2)'}
+                nodeColor={() => '#00b4d8'}
+                backgroundColor="rgba(0, 0, 0, 0)"
+                width={window.innerWidth}
+                height={window.innerHeight}
+              />
             </div>
           </div>
         )}
