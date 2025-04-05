@@ -29,3 +29,16 @@ def extract_content_from_sources(sources):
             content = scrape_website(url)
             contents[url] = content
     return contents
+
+def validate_response(response):
+    nodes = [node["id"] for node in response["nodes"]]
+    for i in range(len(response.get("edges"))):
+        source_node = response["edges"][i].get("source_node")
+        target_node = response["edges"][i].get("target_node")
+        if not source_node in nodes:
+            del response["edges"][i]
+            return validate_response(response)
+        if not target_node in nodes:
+            del response["edges"][i]
+            return validate_response(response)
+    return response
