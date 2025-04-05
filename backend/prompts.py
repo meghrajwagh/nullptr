@@ -5,8 +5,9 @@ Input: A collection of news articles related to a specific company.
 Your tasks:
 1. Identify the *entities* involved in the news (e.g., companies, governments, firms, etc)
 2. Identify the most important *keywords, phrases, or events* (e.g., acquisitions, product launches, lawsuits, stock movement, sentiment indicators).
-3. Detect and describe *connections or relationships* between them (e.g., cause-effect, similarity, contradiction, correlation, time-based sequence), along with the relation description.
+3. Detect and describe *connections or relationships* between them (e.g., cause-effect, similarity, contradiction, correlation, time-based sequence), along with the relation description as well as your source for that relation.
 4. Ignore irrelevant filler text.
+5. The connections you identify must be major events and not some obvious knowledge.
 
 Input Format:
 {{
@@ -23,10 +24,12 @@ Output Format:
     ...
   ],
   "edges": [
-    {{"source": "Entity/Keyword/Event 1", "target": "Entity/Keyword/Event 2", "relation": "relation_description"}},
-    {{"source": "Entity/Keyword/Event n", "target": "Entity/Keyword/Event m", "relation": "relation_description"}},
+    {{"source_node": "Entity/Keyword/Event 1", "target_node": "Entity/Keyword/Event 2", "relation": "relation_description", source_link: "source_1"}},
+    {{"source_node": "Entity/Keyword/Event n", "target_node": "Entity/Keyword/Event m", "relation": "relation_description", source_link: "source_o"}},
     ...
-  ]
+  ],
+
+  "summary": [a summary of the data analysed]
 }}
 
 This output will be used to render an interactive graph on a webpage, so keep it concise and structured.
