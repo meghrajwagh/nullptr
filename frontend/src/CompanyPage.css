@@ -92,3 +92,34 @@ h1 {
     transform: rotate(360deg);
   }
 }
+
+.info-panel {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  width: 300px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 180, 216, 0.3);
+  z-index: 10;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.info-panel h2, .info-panel h3 {
+  color: #00b4d8;
+  margin-bottom: 0.5rem;
+}
+
+.info-panel ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.info-panel li {
+  margin-bottom: 0.5rem;
+}
