@@ -1,9 +1,6 @@
 from rich import print
 
 from langchain.prompts import ChatPromptTemplate
-from langchain.agents import initialize_agent, AgentType
-from langchain.agents import AgentExecutor
-from langchain.memory.buffer import ConversationBufferMemory
 
 from langchain_google_community import GoogleSearchAPIWrapper
 from langchain_google_genai import GoogleGenerativeAI
@@ -50,7 +47,6 @@ for source, urls in final_results.items():
         content = scrape_website(url)
         contents[url] = content
 
-memory = ConversationBufferMemory(memory_key="chat", return_messages=True)
 chat_prompt = ChatPromptTemplate.from_messages([
     ("system", entity_relation_extraction_prompt),
 ])
