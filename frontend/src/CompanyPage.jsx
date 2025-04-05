@@ -69,27 +69,40 @@ export default function CompanyPage() {
           <div className="analysis-container">
             <div className="graph-card">
               <div className="graph-container">
-              <ForceGraph2D
-        graphData={graphData}
-        backgroundColor="rgba(0, 0, 0, 0)"
-        linkColor={() => "rgba(255, 255, 255, 0.4)"}
-        width={window.innerWidth}
-        height={window.innerHeight}
-        nodeCanvasObject={(node, ctx, globalScale) => {
-          const label = node.id;
-          const fontSize = 12 / globalScale;
-          ctx.font = `${fontSize}px Sans-Serif`;
-          ctx.fillStyle = '#00b4d8';
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillText(label, node.x, node.y);
-        }}
-        nodePointerAreaPaint={(node, color, ctx) => {
-          ctx.fillStyle = "white";
-          const size = 5;
-          ctx.fillRect(node.x - size / 2, node.y - size / 2, size, size);
-        }}
-      />
+            <ForceGraph2D
+              graphData={graphData}
+              backgroundColor="rgba(0, 0, 0, 0)"
+              linkColor={() => "rgba(255, 255, 255, 0.4)"}
+              width={window.innerWidth}
+              height={window.innerHeight}
+              nodeDraggable={true}
+              cooldownTicks={100}
+              nodeCanvasObject={(node, ctx, globalScale) => {
+                const label = node.id;
+                const fontSize = 12 / globalScale;
+
+                // Draw the node circle
+                const radius = 2;
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI, false);
+                ctx.fillStyle = '#00b4d8';
+                ctx.fill();
+
+                // Draw the label slightly above the node
+                ctx.font = `${fontSize}px Sans-Serif`;
+                ctx.fillStyle = 'white';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom'; // text above the node
+                ctx.fillText(label, node.x, node.y - radius - 2);
+              }}
+              nodePointerAreaPaint={(node, color, ctx) => {
+                const size = 10;
+                ctx.fillStyle = color;
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, size / 2, 0, 2 * Math.PI, false);
+                ctx.fill();
+              }}
+            />
 
               </div>
             </div>
