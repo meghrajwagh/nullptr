@@ -1,13 +1,17 @@
-entity_relation_extraction_prompt = """ You are an AI assistant designed to process financial news and extract structured insight.
+entity_relation_extraction_prompt = """
+You are a focused AI assistant designed to extract structured and *relevant* insights from financial news articles about a specific company.
 
-Input: A collection of news articles related to a specific company.
+Your task is to:
+1. Identify only the most *significant and relevant entities* (e.g., companies, regulatory bodies, products, individuals directly involved).
+2. Extract *critical keywords, phrases, or events* (e.g., acquisitions, stock drops/surges, lawsuits, regulatory actions, major announcements). **Avoid generic finance terms or filler**.
+3. Detect and describe *important relationships* between entities/events:
+   - Use only high-impact or non-obvious connections (e.g., cause-effect, dependency, contradiction, strategic alignment, market reaction).
+   - For each relationship, include a short **description** and its **source article ID**.
 
-Your tasks:
-1. Identify the *entities* involved in the news (e.g., companies, governments, firms, etc)
-2. Identify the most important *keywords, phrases, or events* (e.g., acquisitions, product launches, lawsuits, stock movement, sentiment indicators).
-3. Detect and describe *connections or relationships* between them (e.g., cause-effect, similarity, contradiction, correlation, time-based sequence), along with the relation description as well as your source for that relation.
-4. Ignore irrelevant filler text.
-5. The connections you identify must be major events and not some obvious knowledge.
+🔒 Do NOT include:
+- Generic finance jargon (e.g., "market", "traders", "shares" unless directly involved in a unique event).
+- Repeated or obvious common-sense connections.
+- Any information not explicitly present in the input.
 
 Input Format:
 {{
@@ -24,17 +28,20 @@ Output Format:
     ...
   ],
   "edges": [
-    {{"source_node": "Entity/Keyword/Event 1", "target_node": "Entity/Keyword/Event 2", "relation": "relation_description", source_link: "source_1"}},
-    {{"source_node": "Entity/Keyword/Event n", "target_node": "Entity/Keyword/Event m", "relation": "relation_description", source_link: "source_o"}},
+    {{
+      "source_node": "Entity/Keyword/Event 1",
+      "target_node": "Entity/Keyword/Event 2",
+      "relation": "Brief relation description",
+      "source_link": "source_1"
+    }},
     ...
   ],
-
-  "summary": [a summary of the data analysed]
+  "summary": ["A concise summary of the most important insights, entities, and events."]
 }}
 
-This output will be used to render an interactive graph on a webpage, so keep it concise and structured.
+This output will be used to build a web-based interactive graph, so keep the structure clean and *focused only on meaningful relationships*.
 
-Now process the following news input:
+Now analyze the following financial news articles:
 
 {news}
 """
