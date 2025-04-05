@@ -1,3 +1,4 @@
+// Add this with other imports
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { analyzeCompany } from './services/api';
@@ -11,8 +12,9 @@ export default function CompanyPage() {
 
   const [analysisData, setAnalysisData] = useState(null);
   const [hoverNode, setHoverNode] = useState(null);
+  const [hoverLink, setHoverLink] = useState(null); // ✅ NEW
   const [selectedNode, setSelectedNode] = useState(null);
-  const [selectedEdge, setSelectedEdge] = useState(null); // ✅ new
+  const [selectedEdge, setSelectedEdge] = useState(null);
   const [pathLinks, setPathLinks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -80,43 +82,40 @@ export default function CompanyPage() {
     return [];
   };
 
-  if (loading) {
-    return <div className="company-page">Analyzing {company}...</div>;
-  }
-
-  if (error) {
-    return <div className="company-page">Error: {error}</div>;
-  }
+  if (loading) return <div className="company-page">Analyzing {company}...</div>;
+  if (error) return <div className="company-page">Error: {error}</div>;
 
   return (
     <div className="company-page" style={{ height: '100vh', width: '100vw' }}>
       <ForceGraph2D
         ref={graphRef}
         graphData={graphData}
-        backgroundColor="rgba(0, 0, 0, 0)"
+        backgroundColor="rgba(232, 220, 220, 0)"
         width={window.innerWidth}
         height={window.innerHeight}
         nodeDraggable={true}
         cooldownTicks={100}
-        linkColor={(link) =>
-          selectedNode &&
-          (link.source.id === selectedNode.id || link.target.id === selectedNode.id)
-            ? 'black'
-            : '#aaa'
-        }
-        linkWidth={(link) =>
-          pathLinks.some(
-            (p) => p.source === link.source && p.target === link.target
-          )
-            ? 3
-            : 1.5
-        }
+        linkColor={(link) => {
+          if (link === selectedEdge) return '#f4a261'; // 🔶 clicked
+          if (link === hoverLink) return '#f4a261aa'; // 🔶 semi-transparent on hover
+          if (pathLinks.includes(link)) return '#f4a261'; // path highlight
+          return '#aaa'; // default
+        }}
+        
+        linkWidth={(link) => {
+          if (link === selectedEdge) return 4;     // clicked = thick
+          if (link === hoverLink) return 3;        // hover = medium
+          if (pathLinks.includes(link)) return 3;  // path = medium
+          return 1.5;                              // default
+        }}
+        
         onNodeHover={setHoverNode}
+        onLinkHover={setHoverLink} // ✅ NEW
         onNodeClick={(node) => {
           if (!node || node.x == null || node.y == null) return;
 
           setSelectedNode(node);
-          setSelectedEdge(null); // ✅ clear edge
+          setSelectedEdge(null);
           const path = computePath(node.id);
           setPathLinks(path);
 
@@ -125,7 +124,7 @@ export default function CompanyPage() {
         }}
         onLinkClick={(link) => {
           setSelectedEdge(link);
-          setSelectedNode(null); // ✅ clear node
+          setSelectedNode(null);
           setPathLinks([]);
 
           const source = typeof link.source === 'object' ? link.source : graphData.nodes.find(n => n.id === link.source);
@@ -153,12 +152,7 @@ export default function CompanyPage() {
           ctx.fill();
 
           ctx.font = `${fontSize}px Sans-Serif`;
-          ctx.fillStyle =
-            selectedNode?.id === node.id
-              ? 'black'
-              : hoverNode?.id === node.id
-              ? 'black'
-              : 'white';
+          ctx.fillStyle = '#ffffff'; // ✅ white text for all states
           ctx.textAlign = 'center';
           ctx.textBaseline = 'bottom';
           ctx.fillText(label, node.x, node.y - radius - 2);
