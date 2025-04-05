@@ -4,6 +4,8 @@ from langchain_google_community import GoogleSearchAPIWrapper
 from dotenv import load_dotenv
 load_dotenv()
 
+from utils import scrape_website
+
 COMPANY = "Tata Motors"
 NUMBER_OF_RESULTS_PER_SOURCE = 5
 
@@ -40,3 +42,8 @@ for source in sources:
         final_results[source] = []
     final_results[source].extend(urls)
 print(final_results)
+
+for source, urls in final_results.items():
+    for url in urls:
+        content = scrape_website(url)
+        print(f"{source}:\n{content}")
