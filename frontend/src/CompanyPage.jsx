@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { analyzeCompany } from './services/api'
 import ForceGraph2D from 'react-force-graph-2d'
-import './App.css'
+import './CompanyPage.css'
 
 export default function CompanyPage() {
   const { company } = useParams();
