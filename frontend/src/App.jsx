@@ -1,12 +1,15 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './App.css'
 
 function App() {
+  const navigate = useNavigate();
   const [companyName, setCompanyName] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Company Name:', companyName)
+    navigate(`/company/${companyName}`)
   }
 
   return (
