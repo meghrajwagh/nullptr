@@ -72,6 +72,7 @@ export default function CompanyPage() {
               <ForceGraph2D
         graphData={graphData}
         backgroundColor="rgba(0, 0, 0, 0)"
+        linkColor={() => "rgba(255, 255, 255, 0.4)"}
         width={window.innerWidth}
         height={window.innerHeight}
         nodeCanvasObject={(node, ctx, globalScale) => {
@@ -84,7 +85,7 @@ export default function CompanyPage() {
           ctx.fillText(label, node.x, node.y);
         }}
         nodePointerAreaPaint={(node, color, ctx) => {
-          ctx.fillStyle = color;
+          ctx.fillStyle = "white";
           const size = 5;
           ctx.fillRect(node.x - size / 2, node.y - size / 2, size, size);
         }}
