@@ -125,4 +125,3 @@ app.*.symbols
 # python related
 **/venv
 **/.env
-**/.plan.md
