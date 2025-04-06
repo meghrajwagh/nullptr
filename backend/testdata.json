@@ -1,177 +1,126 @@
 {
-    "nodes": [
-        {"id": "Tata Motors"},
-        {"id": "Stock Price Decrease"},
-        {"id": "Nifty 100"},
-        {"id": "Nifty Auto"},
-        {"id": "Analyst Recommendation: Buy"},
-        {"id": "Target Price: Rs 827.11"},
-        {"id": "Bearish MACD Crossover"},
-        {"id": "Bearish Stochastic Crossover"},
-        {"id": "FII Holdings Decrease"},
-        {"id": "DII Holdings Increase"},
-        {"id": "Revenue Increase"},
-        {"id": "Net Profit Increase"},
-        {"id": "Dividend Payment"},
-        {"id": "Dividend Yield: 0.92%"},
-        {"id": "Maruti Suzuki"},
-        {"id": "M&M"},
-        {"id": "Ashok Leyland"},
-        {"id": "Hyundai Motor India Ltd."},
-        {"id": "Peer Dividend Yield Comparison"},
-        {"id": "PE Ratio: 7.58"},
-        {"id": "PB Ratio: 2.52"},
-        {"id": "Employee Expense (as % of Revenue)"},
-        {"id": "Interest Expense (as % of Revenue)"},
-        {"id": "Market Cap: Rs 2,25,965.85 Crore"}
-    ],
-    "edges": [
-        {
-            "source_node": "Stock Price Decrease",
-            "target_node": "Tata Motors",
-            "relation": "Relates to",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Tata Motors",
-            "target_node": "Nifty 100",
-            "relation": "3-Year Stock Return Comparison (Outperformed Nifty 100)",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Tata Motors",
-            "target_node": "Nifty Auto",
-            "relation": "3-Year Stock Return Comparison (Underperformed Nifty Auto)",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Analyst Recommendation: Buy",
-            "target_node": "Tata Motors",
-            "relation": "Analysts recommend",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Target Price: Rs 827.11",
-            "target_node": "Tata Motors",
-            "relation": "Analysts Target Price (Median)",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Bearish MACD Crossover",
-            "target_node": "Tata Motors",
-            "relation": "Technical Indicator Signal (Weekly Chart, Apr 04, 2025)",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Bearish Stochastic Crossover",
-            "target_node": "Tata Motors",
-            "relation": "Technical Indicator Signal (Weekly Chart, Apr 04, 2025)",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "FII Holdings Decrease",
-            "target_node": "Tata Motors",
-            "relation": "FII Holdings decreased by 1.88%",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "DII Holdings Increase",
-            "target_node": "Tata Motors",
-            "relation": "DII Holdings increased by 0.47%",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Revenue Increase",
-            "target_node": "Tata Motors",
-            "relation": "Consolidated Revenue increased QoQ by 11.99%",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Revenue Increase",
-            "target_node": "Tata Motors",
-            "relation": "Consolidated Revenue increased YoY by 2.93%",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Net Profit Increase",
-            "target_node": "Tata Motors",
-            "relation": "Reported Net Profit of Rs 5,616.00 Crore (Latest Quarter)",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Dividend Payment",
-            "target_node": "Tata Motors",
-            "relation": "Last dividend paid on June 11, 2024 (Rs. 3.0)",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Dividend Yield: 0.92%",
-            "target_node": "Tata Motors",
-            "relation": "Current Dividend Yield",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Tata Motors",
-            "target_node": "Peer Dividend Yield Comparison",
-            "relation": "Dividend Yield comparison with peers",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Peer Dividend Yield Comparison",
-            "target_node": "Maruti Suzuki",
-            "relation": "Peer",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Peer Dividend Yield Comparison",
-            "target_node": "M&M",
-            "relation": "Peer",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Peer Dividend Yield Comparison",
-            "target_node": "Ashok Leyland",
-            "relation": "Peer",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Peer Dividend Yield Comparison",
-            "target_node": "Hyundai Motor India Ltd.",
-            "relation": "Peer",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "PE Ratio: 7.58",
-            "target_node": "Tata Motors",
-            "relation": "PE Ratio",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "PB Ratio: 2.52",
-            "target_node": "Tata Motors",
-            "relation": "PB Ratio",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Employee Expense (as % of Revenue)",
-            "target_node": "Tata Motors",
-            "relation": "Employee Expense is 9.7% of Revenue",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Interest Expense (as % of Revenue)",
-            "target_node": "Tata Motors",
-            "relation": "Interest Expense is 2.28% of Revenue",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        },
-        {
-            "source_node": "Market Cap: Rs 2,25,965.85 Crore",
-            "target_node": "Tata Motors",
-            "relation": "Market Capitalization",
-            "source_link": "https://economictimes.indiatimes.com/tata-motors-ltd/stocks/companyid-12934.cms"
-        }
-    ],
-    "summary": [
-        "Tata Motors stock price has recently decreased, but analysts maintain a \"Buy\" recommendation with a median target price of Rs 827.11.      Bearish technical indicators have emerged. FII holdings have decreased while DII holdings increased in recent months. The company reported revenue  and net profit growth in the latest quarter. Tata Motors\" dividend yield is 0.92%, and it is being compared to peers like Maruti Suzuki, M&M, Ashok Leyland, and Hyundai Motor India Ltd. in terms of dividend yield and valuation ratios."
-    ]
+  "nodes": [
+    {"id": "Tata Motors"},
+    {"id": "Q4 FY24 Financial Results"},
+    {"id": "Revenue Growth (Q4 FY24)"},
+    {"id": "Profitability (Q4 FY24)"},
+    {"id": "Debt Reduction (Q4 FY24)"},
+    {"id": "Upcoming Models"},
+    {"id": "Nexon"},
+    {"id": "Harrier"},
+    {"id": "Curvv"},
+    {"id": "Sierra"},
+    {"id": "Avinya"},
+    {"id": "Jaguar Land Rover (JLR)"},
+    {"id": "Commercial Vehicles Business"},
+    {"id": "Analyst Ratings"},
+    {"id": "Stock Price Increase"},
+    {"id": "JLR Demand"}
+  ],
+  "edges": [
+    {
+      "source_node": "Tata Motors",
+      "target_node": "Q4 FY24 Financial Results",
+      "relation": "announced",
+      "source_link": "Articles 1-5"
+    },
+    {
+      "source_node": "Q4 FY24 Financial Results",
+      "target_node": "Revenue Growth (Q4 FY24)",
+      "relation": "showed significant",
+      "source_link": "Articles 1-5"
+    },
+    {
+      "source_node": "Q4 FY24 Financial Results",
+      "target_node": "Profitability (Q4 FY24)",
+      "relation": "demonstrated strong",
+      "source_link": "Articles 1-5"
+    },
+    {
+      "source_node": "Q4 FY24 Financial Results",
+      "target_node": "Debt Reduction (Q4 FY24)",
+      "relation": "included",
+      "source_link": "Articles 1-5"
+    },
+    {
+      "source_node": "Tata Motors",
+      "target_node": "Upcoming Models",
+      "relation": "plans to launch",
+      "source_link": "Articles 1-5"
+    },
+    {
+      "source_node": "Upcoming Models",
+      "target_node": "Nexon",
+      "relation": "include",
+      "source_link": "Articles 1-5"
+    },
+    {
+      "source_node": "Upcoming Models",
+      "target_node": "Harrier",
+      "relation": "include",
+      "source_link": "Articles 1-5"
+    },
+    {
+      "source_node": "Upcoming Models",
+      "target_node": "Curvv",
+      "relation": "include",
+      "source_link": "Articles 1-5"
+    },
+    {
+      "source_node": "Upcoming Models",
+      "target_node": "Sierra",
+      "relation": "include",
+      "source_link": "Articles 1-5"
+    },
+    {
+      "source_node": "Upcoming Models",
+      "target_node": "Avinya",
+      "relation": "include",
+      "source_link": "Articles 1-5"
+    },
+    {
+      "source_node": "Tata Motors",
+      "target_node": "Jaguar Land Rover (JLR)",
+      "relation": "owns",
+      "source_link": "Articles 1-5"
+    },
+    {
+      "source_node": "Tata Motors",
+      "target_node": "Commercial Vehicles Business",
+      "relation": "operates",
+      "source_link": "Articles 2-5"
+    },
+    {
+      "source_node": "Analyst Ratings",
+      "target_node": "Tata Motors",
+      "relation": "positive outlook after Q4 results",
+      "source_link": "Articles 2-5"
+    },
+    {
+      "source_node": "Analyst Ratings",
+      "target_node": "Stock Price Increase",
+      "relation": "anticipate further",
+      "source_link": "Articles 4-5"
+    },
+    {
+      "source_node": "Stock Price Increase",
+      "target_node": "Tata Motors",
+      "relation": "occurred after Q4 results",
+      "source_link": "Articles 3-5"
+    },
+    {
+      "source_node": "Jaguar Land Rover (JLR)",
+      "target_node": "JLR Demand",
+      "relation": "faces strong",
+      "source_link": "Article 1"
+    }
+  ],
+  "summary": [
+    "Tata Motors announced strong Q4 FY24 financial results, showing significant revenue growth and improved profitability.",
+    "The company has also achieved debt reduction in Q4 FY24.",
+    "Tata Motors is planning to launch new models including Nexon, Harrier, Curvv, Sierra, and Avinya.",
+    "Jaguar Land Rover (JLR), a subsidiary of Tata Motors, is experiencing strong demand.",
+    "Analysts have a positive outlook on Tata Motors following the Q4 results, anticipating further stock price increase and issuing upgrades.",
+    "Tata Motors operates a Commercial Vehicles business segment."
+  ]
 }
