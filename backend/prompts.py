@@ -25,8 +25,7 @@ Output Format:
 {{
 "source_node": "Entity/Keyword/Event 1",
 "target_node": "Entity/Keyword/Event 2",
-"relation": "Brief relation description",
-"source_link": "source_1"
+"relation": "description of the connection in 4 to 6 lines",
 }},
 ...
 ],

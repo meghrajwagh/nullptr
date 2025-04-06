@@ -1,17 +1,14 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, } from 'react'
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import './App.css'
+import CompanyPage from './CompanyPage'
 
-function App() {
-  const navigate = useNavigate();
+function HomePage() {
   const [companyName, setCompanyName] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-  const [result, setResult] = useState(null)
+  const navigate = useNavigate()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Company Name:', companyName)
     navigate(`/company/${companyName}`)
   }
 
@@ -38,29 +35,18 @@ function App() {
               onChange={(e) => setCompanyName(e.target.value)}
               placeholder="Enter company name"
               required
-              disabled={loading}
             />
           </div>
-          {error && <div className="error-message">{error}</div>}
-          <button type="submit" disabled={loading}>
-            {loading ? 'Analyzing...' : 'Submit'}
-          </button>
+          <button type="submit">Submit</button>
         </form>
-        
-        {result && (
-          <div className="result-card">
-            <h3>Analysis Results</h3>
-            <pre>{JSON.stringify(result, null, 2)}</pre>
-          </div>
-        )}
-        
+
         <div className="features-section">
           <h2 className="section-title">What We Do</h2>
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 0 0 0 0 3 8v8a2 2 1000 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
                   <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
                   <line x1="12" y1="22.08" x2="12" y2="12" />
                 </svg>
@@ -68,7 +54,7 @@ function App() {
               <h3>Data Analysis</h3>
               <p>Advanced analytics to uncover valuable insights and trends in your company's data</p>
             </div>
-            
+
             <div className="feature-card">
               <div className="feature-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -78,7 +64,7 @@ function App() {
               <h3>Growth Tracking</h3>
               <p>Monitor your company's progress with real-time metrics and performance indicators</p>
             </div>
-            
+
             <div className="feature-card">
               <div className="feature-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -92,6 +78,14 @@ function App() {
           </div>
         </div>
       </div>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <>
+      <HomePage />
     </>
   )
 }
