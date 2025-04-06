@@ -97,7 +97,7 @@ A powerful tool that analyzes news articles about companies and generates intera
 ## Visuals
 
 ### Homepage
-![Homepage](./images/Home%20Page.jpg)
+![Homepage](./images/Homepage.jpg)
 ### Mindmap
 ![Mindmap](./images/Mindmap.jpg)
 ### Connection
